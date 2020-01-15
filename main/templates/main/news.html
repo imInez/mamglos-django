@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<div class="parallax parallax_all parallax_top lg-screen">
+</div>
+<div class="main-box text-decor-none regular-text">
+    <h2>Aktualności</h2>
+    <hr>
+    {% for article in object_list %}
+
+    <div class="jumbotron light-blue-bg">
+        <h3 class="display-8">{{ article.title}}</h3>
+        <p class="lead">{{ article.date }}</p>
+        <p class="lead">{{ article.tldr }}</p>
+        {% if article.fb_link %}
+        <a href="{{ article.fb_link }}">Zobacz post na facebooku</a>
+        {% endif %}
+        <hr class="my-4">
+        <p>{{ article.article_text }}</p>
+        {% for image in article.articlepicture_set.all %}
+        <a target="_blank" href="{{ image.image.url }} ">
+            <img class="thumbnail_img" src="{{ image.image.url }}"></a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock content %}

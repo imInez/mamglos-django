@@ -1,0 +1,454 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin:auto;
+    overflow-x: hidden;
+}
+
+p {
+    font-size: 1.1rem !important;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #363636;
+}
+
+
+/***************** layout  *****************/
+.m-auto {
+    margin:auto;
+}
+
+.width100pr {
+    width:100%;
+}
+
+.max-width100pr {
+    max-width:100%;
+}
+
+.width75pr {
+    width:100%;
+}
+
+.width20pr{
+    max-width: 20%;
+}
+
+.top-space{
+    padding-top:2%;
+}
+
+.bottom-space{
+    padding-bottom:2%;
+}
+
+.no-borders{
+    border-style: none;
+}
+
+.width-screen-adjust {
+    max-width: 80%;
+    margin: auto;
+}
+
+@media only screen and (max-width:1224px){
+    .width-screen-adjust{
+        max-width: 90%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width:990px){
+    .width-screen-adjust{
+        max-width: 100%;
+        margin: auto;
+    }
+}
+
+/***************** parallax & backgrounds *****************/
+
+.parallax {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none
+}
+.parallax a{
+    text-decoration: none;
+}
+
+.parallax_top{
+    background-image: url('../pics/parallax_top.jpg');
+}
+
+.parallax_home {
+    height: 90%;
+}
+
+.parallax_home_top_text {
+    padding-top: 23%;
+    padding-left: 50%;
+    text-decoration: none !important;
+}
+
+.parallax_home_middle {
+    background-image: url('../pics/12b-min.jpg');
+    height: 80%;
+}
+
+.parallax_home_down {
+    background-image: url('../pics/11A.jpg');
+    height: 80%;
+}
+
+.parallax_all{
+    height: 45%;
+}
+
+.parallax_aboutus{
+    background-image: url('../pics/13-min.jpg');
+    height: 50%;
+}
+
+.parallax_support{
+    background-image: url('../pics/10.jpg');
+    height: 100%;
+    font-size: 10vw;
+    color: white;
+    text-align: center;
+}
+.parallax_support div{
+    padding-top: 18%;
+}
+
+/* home small screens classes */
+
+.top-mobile{
+    background-image: url('../pics/parallax_top_mobile1.jpg');
+    background-position: 50% 50%;
+    background-repeat: initial initial;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover!important;
+    position:relative;
+}
+
+.top-mobile-text{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width:80%;
+    margin:auto;
+}
+
+.light-blue-bg{
+    background-color: #eaf5fb;
+}
+
+/* scroll */
+.bg-white{
+    transition: 750ms ease;
+    background-color: white !important;
+}
+
+.bg-white.scrolled {
+    background-color: #C7E6FA !important;
+}
+
+.bg-transparent {
+    background: transparent !important;
+}
+
+/***************** colors *****************/
+
+.color-white{
+    color: white !important;
+}
+
+.dark-green-bg{
+    background-color: #2E3D3F;
+}
+
+.color-light-grey{
+    color: #E6E6E6 !important;
+}
+
+.bg-lightgrey{
+    background-color: #FAFAFA;
+}
+
+.color-darkgrey{
+    color: #363636;
+}
+
+/***************** texts *****************/
+.regular-text {
+	font-weight: 300;
+}
+
+.text-centered{
+    text-align: center;
+}
+
+.banner-big-text {
+    font-size: 4em;
+}
+
+.text-decor-none{
+    text-decoration: none !important;
+}
+
+.text-on-bg{
+    color: white !important;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 2px black;
+}
+
+.text-on-bg-size {
+    padding-top: 15%;
+    width: 60%;
+}
+
+.text-on-bg a{
+    color: white !important;
+}
+
+.text-on-bg span:hover{
+    text-decoration: none;
+    background-color: white;
+    opacity: 0.5;
+    color: black;
+    text-shadow: none;
+}
+
+/***************** customs *****************/
+
+/* navbar */
+.nav-sticky{
+    position:fixed;
+    width: 100%;
+    opacity: 1;
+    z-index: 999;
+    overflow-x: hidden;
+}
+.nav-margin-custom{
+    height: 50px;
+}
+
+.logo-size {
+    max-width: 150px;
+}
+
+.main-box{
+    margin: 2% 5% 0.5% 5%;
+    padding: 1%;
+    max-width: 100%;
+    min-height: 10%;
+}
+
+/*  for images in all articles */
+.thumbnail_img{
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+
+.thumbnail_img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+/* home bars */
+.bar_container{
+    margin: auto;
+    margin-top: 1% !important;
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+.bar_container .card {
+    max-width: 15%;
+    margin: auto;
+}
+
+/* footer */
+.sign{
+    font-size: 8px;
+}
+
+/* small screens home classes */
+.image-boxes {
+    position: relative;
+    text-align: center;
+}
+
+.image-boxes-img {
+    width:80%;
+    height: auto;
+    margin:auto;
+    margin-bottom: 3%;
+}
+
+.image-boxes-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    color:#363636;
+    border-color: #ffffff;
+}
+
+.image-boxes-button {
+    color:#363636;
+    position: relative;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    line-height: normal;
+    border: 1px solid transparent;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: sofia-pro, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    background-color: rgba(255,251,246, 0.85);
+}
+
+.btnCenter{
+    width: 100%;
+    /*height: 10%;*/
+    margin-bottom: 2%;
+    font-size: 2rem;
+}
+
+/* adopted mosaic */
+.pictures_mosaic {
+  /* prevent vertical gaps */
+  width: 80%;
+  margin: auto;
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;
+}
+
+.pictures_mosaic img {
+  /* in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}
+
+.image-hover-text {
+-webkit-transition: all 0.6s ;
+-moz-transition: all 0.6s ;
+-o-transition: all 0.6s ;
+transition: all 0.6s ;
+position: relative;
+}
+
+.image-hover-text:after {
+content:'\A';
+opacity: 0;
+background:rgba(0,0,0,0.3);
+position: absolute;
+height: 100%;
+width: 100%;
+top:0;
+left:0;
+transition: all 1s;
+-webkit-transition: all 1s;
+}
+
+.image-hover-text:before{
+position: absolute;
+opacity:0;
+top:50%;
+left: 50%;
+content: attr(data-content1);
+color: #fff;
+font-weight: 800;
+font-size: 2rem;
+text-align: center;
+z-index: 1;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+}
+
+.image-hover-text:hover:after, .image-hover-text:hover:before {
+opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .pictures_mosaic {
+    width: 100%;
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  .pictures_mosaic {
+      width: 100%;
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  .pictures_mosaic {
+      width: 100%;
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  .pictures_mosaic {
+      width: 100%;
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
+
+/***************** media queries *****************/
+@media only screen and (max-width:1024px){
+.sm-md-screen{
+    display:block;
+}
+.logo-size{
+    max-width:75px;
+}
+
+.lg-screen{
+    display: none;
+}
+}
+
+@media only screen and (min-width:1025px){
+.lg-screen{
+    display:block;
+}
+
+.sm-md-screen{
+    display: none;
+}
+}
+

@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="parallax parallax_all parallax_top  lg-screen">
+</div>
+
+    <div class="main-box text-decor-none regular-text">
+        <h2>Stowarzyszenie Mam Głos w Nowym Sączu</h2>
+        <hr>
+        <p> Staramy się uczynić bardziej kolorowym świat bezdomnych, porzuconych i skrzywdzonych psów. Przywracamy im wiarę w człowieka i pokazujemy, że komuś na nich zależy.</p>
+        <p>Pełne brzuchy, zagojone rany, posklejane serca, odzyskane zaufanie do człowieka i szczęście na pyszczku ♥</p>
+        <h5></h5><br>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5	col-xl-5">
+                <h5>Zapraszamy do odwiedzin:</h5>
+                <p>
+                    <br>Przytulisko: ul. Asnyka 3, Nowy Sącz
+                    <br>Biuro: ul. Marcina Borelowskiego 29, Nowy Sącz
+                    <br>tel. 530 994 113
+                    <br><a href="https://www.facebook.com/stowarzyszenieMamGlos/">facebook</a>
+                    <br>KRS: 0000420018
+                    <br>Nr konta: 19 1050 1722 1000 0090 3011 4400
+                </p>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7	col-xl-7">
+                <iframe class='address_map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2585.616736914441!2d20.6925121518358!3d49.60497657926633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473de5258e4d858d%3A0xb29d1e2cb9d82e1b!2sAdama%20Asnyka%203%2C%2033-300%20Nowy%20S%C4%85cz!5e0!3m2!1spl!2spl!4v1571306939312!5m2!1spl!2spl" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
+        <hr>
+        <h5> Dokumenty </h5>
+        {% for doc in documents %}
+        <a href="http://www.mamglos-ns.pl/media/documents/{{ doc.filename }}">{{ doc.filename }}</a>
+        {% endfor %}
+    </div>
+
+{% endblock content%}

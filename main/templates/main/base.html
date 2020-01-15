@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTPYE html>
+
+<html lang="en">
+<head>
+    <title> Stowarzyszenie Mam Głos Nowy Sącz </title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i&display=swap" rel="stylesheet">
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Stowarzyszenie Mam Głos w Nowym Sączu">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'pics/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'pics/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'pics/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'pics/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'pics/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'pics/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'pics/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'pics/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'pics/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'pics/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'pics/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'pics/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pics/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'pics/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'pics/favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+<!--navBar-->
+
+<nav class="navbar navbar-expand-xl navbar-light bg-white nav-sticky">
+    <a class="navbar-brand" href="{% url 'main-home' %}"><img src="../../static/pics/logoJ1.png" class="logo-size" alt="Mam Głos"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center bg-transparent" id="navbarSupportedContent">
+        <div class="navbar-nav">
+            {% with url_name=request.resolver_match.url_name %}
+            <a class="nav-item nav-link {% if url_name == 'main-home' %}active{% endif %}" href="{% url 'main-home' %}">Home </a>
+            <a class="nav-item nav-link {% if url_name == 'main-about' %}active{% endif %}" href="{% url 'main-about' %}">O nas </a>
+            <a class="nav-item nav-link {% if url_name == 'main-news' %}active{% endif %}" href="{% url 'main-news' %}">Aktualności</a>
+            <a class="nav-item nav-link {% if url_name == 'main-volo' %}active{% endif %}" href="{% url 'main-volo' %}">Wolontariat</a>
+            <a class="nav-item nav-link {% if url_name == 'main-forAdoption' %}active{% endif %}" href="{% url 'main-forAdoption' %}"><strong>Potrzebują domu</strong></a>
+            <a class="nav-item nav-link {% if url_name == 'main-adopted' %}active{% endif %}" href="{% url 'main-adopted' %}">Mają dom</a>
+            <a class="nav-item nav-link {% if url_name == 'main-foundlost' %}active{% endif %}" href="{% url 'main-foundlost' %}">Znalezione/Zagubione</a>
+            <a class="nav-item nav-link {% if url_name == 'main-partner' %}active{% endif %}" href="{% url 'main-partner' %}">Darczyńcy</a>
+            <a class="nav-item nav-link {% if url_name == 'main-contact' %}active{% endif %}" href="{% url 'main-contact' %}">Kontakt</a>
+            {% endwith %}
+            <a href="{% url 'main-support' %}" class="btn btn-success color-white xl-screen"> Wesprzyj nas</a>
+        </div>
+    </div>
+</nav>
+
+<div class="nav-margin-custom bg-transparent"></div>
+{% block content %}
+{% endblock %}
+
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item "><a class="page-link color-darkgrey" href="/news?page=1" tabindex="-1"><<< </a></li>
+        <li class="page-item "><a class="page-link color-darkgrey" href="/news?page={{ page_obj.previous_page_number }}" tabindex="-1"><</a></li>
+        <li class="page-item "><a class="page-link color-darkgrey" href="/news?page={{ page_obj.previous_page_number }}" tabindex="-1">{{ page_obj.previous_page_number }}</a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link color-darkgrey" href="#" tabindex="-1"><</a></li>
+        {% endif %}
+        <li class="page-item"><a class="page-link color-darkgrey" href=""><strong>{{ page_obj.number }}</strong></a></li>
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link color-darkgrey" href="/news?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></a></li>
+        <li class="page-item"><a class="page-link color-darkgrey" href="/news?page={{ page_obj.next_page_number }}">></a></li>
+        <li class="page-item"><a class="page-link color-darkgrey" href="/news?page={{ page_obj.paginator.num_pages }}"> >>></a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link" href="#">></a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+<footer class="footer pt-3 dark-green-bg">
+    <div class='container m-auto'>
+        <div class='row bottom-space'>
+            <div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pt-3 color-light-grey'>
+                <h5 class="color-light-grey"> Kontakt </h5>
+                ul. Asnyka 3, Nowy Sącz
+                <br>tel. 530 994 113
+                <br><a href="https://www.facebook.com/stowarzyszenieMamGlos/">facebook</a>
+            </div>
+            <div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pt-3 color-light-grey'>
+                <h5 class="color-light-grey"> Wsparcie </h5>
+                Zachęcamy do wsparcia Stowarzyszenia
+                <br>Nr konta: 19 1050 1722 1000 0090 3011 4400
+                <br> Przekaż 1% podatku - KRS: 0000420018
+            </div>
+            <div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pt-3 color-light-grey'>
+                <h5 class="color-light-grey"> Dokumenty </h5>
+                Sprawozdanie roczne
+                <br>
+                <a href="http://www.mamglos-ns.pl/media/documents/umowa_adopcyjna.pdf" target="_blank"> Wzór umowy adopcyjnej </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="sign dark-green-bg pt-3 text-centered color-light-grey">
+    Copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear()); </script> <a class="color-light-grey text-decor-none" href='https://www.iminez.com'>i'm Inez</a>
+</div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- change nav color on scroll -->
+<script src="{% static 'main/scroll_color_change.js' %}"></script>
+
+</body>
+
+
+
+</html>

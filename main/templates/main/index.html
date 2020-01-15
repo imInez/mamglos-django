@@ -1,0 +1,87 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--top-->
+<div class="sm-md-screen text-centered color-white">
+    <div class="top-mobile">
+        <div class="top-mobile-text">
+    <h2 class="color-white">Dorzuć się do psiej miski</h2>
+    <p><a class="color-darkgrey text-decor-none image-boxes-button" href="{% url 'main-support' %}">WESPRZYJ NAS</a></p>
+    </div>
+    </div>
+</div>
+
+<div class="parallax parallax_top parallax_home lg-screen">
+    <div class="parallax_home_top_text">
+        <h1 class="color-white regular-text banner-big-text">Dorzuć się do psiej miski</h1>
+        <div class="text-on-bg regular-text banner-big-text">
+        <a href="{% url 'main-support' %}"><span class="text-decor-none"><strong>WESPRZYJ NAS</strong></span></a></div>
+    </div>
+</div>
+
+<div class="parallax"></div>
+
+<!--mainPageContent  -->
+
+<div class="sm-md-screen">
+<div class="text-over-image"></div>
+<hr>
+    <h4 class = "regular-text text-centered">Stowarzyszenie Mam Głos w Nowym Sączu</h4>
+
+<hr>
+<div class="row image-boxes">
+    <div class='.col-12 .col-sm-12 .col-md-12 col-lg-6 px-0 image-boxes'>
+        <a href="{% url 'main-forAdoption' %}"><img class="image-boxes-img" src="{% static 'pics/doadopcji-1.jpg' %}"><div class='image-boxes-text'> <div class="image-boxes-button">Podopieczni</div></div></a>
+    </div>
+    <div class='.col-12 .col-sm-12 .col-md-12 col-lg-6 px-0 image-boxes'>
+    <a href="{% url 'main-support' %}"><img class="image-boxes-img" src="{% static 'pics/darczyncy3.jpg' %}"><div class='image-boxes-text'><div class="image-boxes-button">Wsparcie</div></div></a>
+    </div>
+</div>
+<div class="row image-boxes">
+    <div class='.col-12 .col-sm-12 .col-md-12 col-lg-6  px-0 image-boxes'>
+    <a href="{% url 'main-volo' %}"><img class="image-boxes-img" src="{% static 'pics/wolontariat1.jpg' %}"><div class='image-boxes-text'><div class="image-boxes-button">Wolontariat</div></div></a>
+    </div>
+    <div class='.col-12 .col-sm-12 .col-md-12 col-lg-6  px-0 image-boxes'>
+    <a href="{% url 'main-adopted' %}"><img class="image-boxes-img" src="{% static 'pics/adoptowane1.jpg' %}"><div class='image-boxes-text'><div class="image-boxes-button">Adoptowane</div></div></a>
+    </div>
+</div>
+</div>
+
+<div class='lg-screen'>
+    <div class="bar_container text-centered">
+    <h3 class = "regular-text bottom-space ">Aktualności</h3>
+
+{% for article in articles_main %}
+    <h2 class="display-7">{{ article.title }}🐾</h2>
+    <p class="lead"> {{ article.tldr }}  🐶🐾.</p>
+    <a class="btn btn-primary btn-lg btn-info" href="{% url 'main-news' %}" role="button">Zobacz więcej</a>
+</div>
+{% endfor %}
+
+<div class="parallax parallax_home_middle">
+    <div class="text-on-bg text-on-bg-size regular-text text-centered banner-big-text">
+        <a href="{% url 'main-forAdoption' %}"><span class='text-decor-none'>Poznaj nasze zwierzaki</span></a>
+    </div>
+</div>
+
+<div class="bar_container text-centered">
+    <h3 class="regular-text  bottom-space">Pomagają nam<br><br></h3>
+    <div class="row bottom-space">
+        {% for partner in partners %}
+        <div class="card text-centered m-auto no-borders">
+            <a href="{{ partner.thanks_link }}"><img class="width75pr" src="{{ partner.logo.url }}" alt="{{ partner.name }}"></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="parallax parallax_home_down" >
+    <div class="text-on-bg text-on-bg-size regular-text text-centered banner-big-text">
+        <a href="{% url 'main-support' %}"><span class='text-decor-none'> Zobacz jak możesz nam pomóc</span></a>
+    </div>
+
+</div>
+</div>
+{% endblock content %}

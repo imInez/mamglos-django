@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<div class="parallax parallax_all parallax_top lg-screen">
+</div>
+
+<div class="main-box text-decor-none regular-text">
+    <h2>Podziękowania dla naszych głównych darczyńców </h2>
+    <hr>
+    <div class="row bottom-space">
+        {% for partner in partners %}
+        {{ partner.1 }}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="card text-centered m-auto no-borders" style="width: 16rem;">
+            <a href="{{ partner.thanks_link }}"  >
+                <img class="card-img-top" src="{{ partner.logo.url }}" alt="{{ partner.name }}"> </a>
+            <div class="card-body partnerCompanyName"></div>
+        </div>
+    </div>
+    <div class="row rowBottomMargin">
+        {% else %}
+        <div class="card text-centered m-auto no-borders" style="width: 16rem;">
+            <a href="{{ partner.thanks_link }}"  >
+                <img class="card-img-top" src="{{ partner.logo.url }}" alt="{{ partner.name }}"> </a>
+            <div class="card-body partnerCompanyName"></div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <h2>Podziękowania za wsparcie Stowarzyszenia</h2>
+    <hr>
+    {% for article in articles_support %}
+    <div class="jumbotron light-blue-bg font-size-p">
+        <h1 class="display-8">{{ article.title}}</h1>
+        <p class="lead">{{ article.date }}</p>
+        <p class="lead">{{ article.tldr }}</p>
+        {% if article.fb_link %}
+        <a href="{{ article.fb_link }}">Zobacz post na facebooku</a>
+        {% endif %}
+        <hr class="my-4">
+        <p>{{ article.article_text }}</p>
+        {% for image in article.articlepicture_set.all %}
+        <a target="_blank" href="{{ image.image.url }} ">
+            <img class="thumbnail_img" src="{{ image.image.url }}"></a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

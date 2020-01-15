@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="parallax parallax_all parallax_top lg-screen">
+</div>
+
+
+<div class="main-box text-decor-none regular-text">
+    <h2>Poznaj nasze psiaki, pokochaj i zabierz do domu!</h2>
+    <p> Przedstawiamy psiaki polecające się do adopcji.</p>
+    <p>Wszystkie psiaki są zaszczepione, odrobaczone, zaczipowane i wysterylizowane/wykastrowane. Z osobą adoptującą podpisywana jest umowa adopcyjna. Nie wydajemy psów na łańcuch, ani do kojca. Obowiązuje wizyta przed i poadopcyjna !! Szukamy domów 🏡, gdzie psiaki będą pełnoprawnymi członkami rodziny.</p>
+    <p>PAMIĘTAJ! Decyzja o adopcji powinna być przemyślana. Pies to nowy członek rodziny, wiążą się z nim obowiązki i koszty na lata, ale też mnóstwo przyjemności i niepowtarzalnych chwil. </p>
+    <p>Więcej informacji: <a href="{% url 'main-contact' %}">kontakt</a></p>
+    <hr>
+</div>
+
+{% for dog in object_list %}
+<div class="width-screen-adjust regular-text">
+    <div class="row bg-lightgrey">
+        <div class='col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-centered'>
+            <a href='{{ dog.dog_gallery }}'><img src="{{ dog.dog_picture.url }}" class="dogPicture max-width100pr"></a></div>
+        <div class='col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6'>
+            <h1 class="text-centered mt-3">{{ dog.dog_name }}</h1>
+            <p class="px-3">{{ dog.dog_description }}</p>
+            <p class="px-3"><a href="{{ dog.dog_gallery }}" target="_blank" rel="noopener noreferrer">Zobacz mój album</a></p></div>
+        <a href="{% url "main-contact" %}" class="btn btn-info btnCenter">Chcę poznać</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

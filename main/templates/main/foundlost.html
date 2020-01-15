@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<div class="parallax parallax_all parallax_top lg-screen">
+</div>
+
+    <div class="main-box text-decor-none regular-text">
+        <h2>Ogłoszenia o zwierzętach zaginionych i znalezionych w Nowym Sączu i okolicach</h2>
+        <p> Prosimy o <a href="{% url 'main-contact' %}">kontakt</a> na facebooku lub przez mail, by dodać ogłoszenie. </p>
+        <hr>
+
+        {% for article in object_list %}
+
+        <div class="jumbotron light-blue-bg">
+        <h3 class="display-8">{{ article.title}}</h3>
+        <p class="lead">{{ article.date }}</p>
+        <p class="lead">{{ article.tldr }}</p>
+        {% if article.fb_link %}
+        <a href="{{ article.fb_link }}">Zobacz post na facebooku</a>
+        {% endif %}
+        <hr class="my-4">
+        <p>{{ article.article_text }}</p>
+        {% for image in article.articlepicture_set.all %}
+        <a target="_blank" href="{{ image.image.url }} ">
+            <img class="thumbnail_img" src="{{ image.image.url }}"></a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item ">
+                <a class="page-link" href="/news?page={{ page_obj.previous_page_number }}" tabindex="-1">Poprzednia</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Poprzednia</a>
+            </li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="">{{ page_obj.number }}</a></li>
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="/news?page={{ page_obj.next_page_number }}">Następna</a>
+                {% else %}
+            <li class="page-item disables">
+                <a class="page-link" href="#">Nastepna</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+    </div>
+
+{% endblock content %}
