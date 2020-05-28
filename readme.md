@@ -20,6 +20,7 @@ They can now add the dogs they're taking care of and looking for loving homes fo
 * Python
 * Django2
 
-
-
+![MamGlos1](mg1.png)
+![MamGlos2](mg2.png)
+![MamGlos1_mb](mg1_mobile.png) ![MamGlos2_mb](mg2_mobile.png) ![MamGlos3_mb](mg3_mobile.png)
 
